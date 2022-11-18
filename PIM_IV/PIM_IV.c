@@ -3,7 +3,8 @@
 #include <string.h>
 #include <locale.h>
 
-void main() {
+int main() {
     setlocale(LC_ALL, "Portuguese");
     printf("Iniciando repositório!");
+    return 0;
 }
