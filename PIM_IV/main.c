@@ -10,7 +10,7 @@ int main() {
     int idade;
     char cpf[14];
     char rua[80];
-    char numero[10];
+    int numero;
     char bairro[80];
     char cidade[80];
     char estado[80];
@@ -18,33 +18,38 @@ int main() {
     int dataNascimento[3];
     char comorbidadePaciente[100];
 
+    char lixo[100];
+    char lixoChar;
+
     //Inicio do formulario
     printf("Nome: ");
-    scanf("%s",name);
+    scanf("%s", name);
     printf("Idade:");
-    scanf("\n%d",&idade);
+    scanf("\n%d", &idade);
     printf("cpf: ");
-    scanf("%s",cpf);
+    scanf("%s", cpf);
     printf("rua: ");
-    scanf("%s",rua);
+    scanf("%s", rua);
+    scanf("%s", lixo);
     printf("número:");
-    scanf("%s",numero);
+    scanf("%d", &numero);
+    scanf("%c", &lixoChar);
     printf("bairro:");
-    scanf("%s",bairro);
+    scanf("%[^\n]s", bairro);
     printf("cidade:");
-    scanf("%s",cidade);
+    scanf("\n%[^\n]s", cidade);
     printf("estado:");
-    scanf("%s",estado);
+    scanf("\n%[^\n]s", estado);
     printf("cep:");
-    scanf("%s",cep);
+    scanf("\n%[^\n]s", cep);
     printf("data de nascimento - dia:  ");
-    scanf("%d",&dataNascimento[0]);
+    scanf("%d", &dataNascimento[0]);
     printf("data de nascimento - mes:  ");
-    scanf("%d",&dataNascimento[1]);
+    scanf("%d", &dataNascimento[1]);
     printf("data de nascimento - ano:  ");
-    scanf("%d",&dataNascimento[2]);
+    scanf("%d", &dataNascimento[2]);
     printf("comorbidade de Paciente:");
-    scanf("%s",comorbidadePaciente);
+    scanf("%s", comorbidadePaciente);
 
 
 
@@ -53,7 +58,7 @@ int main() {
     printf("%d\n", idade);
     printf("%s\n", cpf);
     printf("%d\n", rua);
-    printf("%s\n", numero);
+    printf("%d\n", numero);
     printf("%d\n", bairro);
     printf("%s\n", cidade);
     printf("%d\n", estado);
