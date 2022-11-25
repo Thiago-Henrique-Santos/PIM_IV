@@ -3,9 +3,23 @@
 #include <string.h>
 #include <locale.h>
 
+void menu ();
+void cadastrar();
+
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    //Declaração das variaveis
+
+    menu();
+
+    return 0;
+}
+
+void menu () {
+    printf("este é o menu");
+}
+
+void cadastrar() {
+     //Declaração das variaveis
     char name[80];
     int idade;
     char cpf[14];
@@ -66,5 +80,4 @@ int main() {
     printf("%d/%d/%d\n", dataNascimento[0], dataNascimento[1], dataNascimento[2]);
     printf("%s\n", comorbidadePaciente);
 
-    return 0;
 }
