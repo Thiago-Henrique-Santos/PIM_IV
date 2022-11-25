@@ -23,7 +23,7 @@ int main() {
 
     //Inicio do formulario
     printf("Nome: ");
-    scanf("%s", name);
+    scanf("%[^\n]s", name);
     printf("Idade:");
     scanf("\n%d", &idade);
     printf("cpf: ");

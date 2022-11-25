@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1668743070 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\main.c
+1668746102 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
