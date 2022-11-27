@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <locale.h>
-#include "paciente.c"
+#include "paciente1.h"
 
-void menu ();
-void cadastrar();
+void setPaciente(struct Paciente);
 
-int main() {
-    setlocale(LC_ALL, "Portuguese");
-
-    menu();
-
-    return 0;
+int main(){
+  struct Paciente paciente;
+  preencherPaciente(paciente);
+  return 0;
 }
