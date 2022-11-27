@@ -33,3 +33,4 @@ struct Paciente
 void preencherPaciente();
 void criarArquivo(struct Paciente paciente);
 void lerArquivo();
+void teste();

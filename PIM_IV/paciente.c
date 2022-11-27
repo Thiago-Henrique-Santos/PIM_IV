@@ -57,6 +57,54 @@ void criarArquivo(struct Paciente novoPaciente){
     menu();
 }
 
+//========== Função de teste (console debug) ==========
+/* AINDA UTILIZANDO (comentado para enviar ao repositório)
+
+void teste() {
+    struct Paciente novoPaciente;
+    printf("<<<<Formulario de Paciente>>>>\n");
+    printf("Nome:");
+    scanf("%s", novoPaciente.nome);
+    printf("Idade:");
+    scanf("%d", &novoPaciente.idade);
+    printf("Telefone:");
+    scanf("%s", novoPaciente.telefone);
+    printf("CPF:");
+    scanf("%s", novoPaciente.cpf);
+    printf("Email:");
+    scanf("%s", novoPaciente.email);
+    printf("Data do Diagnostico:");
+    scanf("%d %d %d", &novoPaciente.dataDiagnostico.dia,  &novoPaciente.dataDiagnostico.mes,  &novoPaciente.dataDiagnostico.ano);
+    printf("Comorbidade:");
+    scanf("%d", &novoPaciente.comorbidade);
+    printf("Data de Nascimento:");
+    scanf("%d %d %d", &novoPaciente.dataNascimento.dia,  &novoPaciente.dataNascimento.mes,  &novoPaciente.dataNascimento.ano);
+    printf("\n<<<<Endereco>>>>\n");
+    printf("Rua:");
+    scanf("%s", novoPaciente.endereco.rua);
+    printf("Numero:");
+    scanf("%d", &novoPaciente.endereco.numero);
+    printf("Bairro:");
+    scanf("%s", novoPaciente.endereco.bairro);
+    printf("Cidade:");
+    scanf("%s", novoPaciente.endereco.cidade);
+    printf("Estado:");
+    scanf("%s", novoPaciente.endereco.estado);
+    printf("CEP:");
+    scanf("%d", &novoPaciente.endereco.cep);
+
+    printf("\n========== Valores salvos ==========\n");
+    printf("Nome: %s.\n", novoPaciente.nome);
+    printf("Idade: %d.\n", novoPaciente.idade);
+    printf("Telefone: %s.\n", novoPaciente.telefone);
+    printf("CPF: %s.\n", novoPaciente.cpf);
+    printf("Email: %s.\n", novoPaciente.email);
+    printf("Data do diagnóstico: %d/%d/%d.\n", novoPaciente.dataDiagnostico.dia, novoPaciente.dataDiagnostico.mes, novoPaciente.dataDiagnostico.ano);
+    //printf("Comodidade: %d.\n", novoPaciente.);
+}
+*/
+//=====================================================
+
 void lerArquivo(){
     FILE *f = fopen("paciente.txt", "r");
     char ch;

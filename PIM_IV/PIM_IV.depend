@@ -26,3 +26,39 @@
 
 1669524815 c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\menu.h
 
+1669579344 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\login.c
+	<stdio.h>
+	"login.h"
+	"menu.h"
+
+1669579344 c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\login.h
+
+1669579344 c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\menu.h
+
+1669579344 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"login.h"
+
+1669579344 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\menu.c
+	<stdio.h>
+	"menu.h"
+	"paciente.h"
+
+1669579989 c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\paciente.h
+
+1669584992 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\teste.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"signup.h"
+
+1669584899 c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\signup.h
+
+1669585032 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\paciente.c
+	<stdio.h>
+	<stdlib.h>
+	"paciente.h"
+	"menu.h"
+
