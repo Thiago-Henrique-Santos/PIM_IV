@@ -58,8 +58,7 @@ void criarArquivo(struct Paciente novoPaciente){
 }
 
 //========== Função de teste (console debug) ==========
-/* AINDA UTILIZANDO (comentado para enviar ao repositório)
-
+/* (Desenvolvimento de teste)
 void teste() {
     struct Paciente novoPaciente;
     printf("<<<<Formulario de Paciente>>>>\n");

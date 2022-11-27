@@ -1,0 +1,1 @@
+char* tratarComorbidade(int n);

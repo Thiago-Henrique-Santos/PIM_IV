@@ -1,4 +1,3 @@
-
 struct Endereco
 {
     char rua[100];
@@ -26,7 +25,7 @@ struct Paciente
     struct Data dataNascimento;
     char email[100];
     struct Data dataDiagnostico;
-    enum {diabetes=1, obesidade=2, hipertencao=3, tuberculosi=4, outros=5} comorbidade;
+    int comorbidade;
 } paciente;
 
 
