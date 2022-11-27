@@ -1,87 +1,54 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "paciente.h"
+#include "menu.h"
 
-struct Pessoa {
-    int id;
-    char nome[100];
-    int idade;
-};
-
-/*
-    Abaixo estão as funções que estavam na main antes
-    Antes de continuá-las, é necessário adaptar às structs
-    Structs necessárias:
-    *Pessoa
-    *Usuário (funcionários)
-    *Paciente
-
-    O arquivo pode ser renomeado mais para frente,
-    dependendo da organização das classes que fizermos
-*/
-
-void menu () {
-    printf("este é o menu");
-}
-
-void cadastrar() {
-     //Declaração das variaveis
-    char name[80];
-    int idade;
-    char cpf[14];
-    char rua[80];
-    int numero;
-    char bairro[80];
-    char cidade[80];
-    char estado[80];
-    char cep[80];
-    int dataNascimento[3];
-    char comorbidadePaciente[100];
-
-    char lixo[100];
-    char lixoChar;
-
-    //Inicio do formulario
-    printf("Nome: ");
-    scanf("%[^\n]s", name);
+void menu();
+void preencherPaciente(){
+    struct Paciente novoPaciente;
+    FILE *f = fopen("paciente.txt", "w");
+    printf("<<<<Formulario de Paciente>>>>\n");
+    printf("Nome:");
+    scanf("%s", novoPaciente.nome);
+    fprintf(f, "Nome = %s\n", novoPaciente.nome);
     printf("Idade:");
-    scanf("\n%d", &idade);
-    printf("cpf: ");
-    scanf("%s", cpf);
-    printf("rua: ");
-    scanf("%s", rua);
-    scanf("%s", lixo);
-    printf("número:");
-    scanf("%d", &numero);
-    scanf("%c", &lixoChar);
-    printf("bairro:");
-    scanf("%[^\n]s", bairro);
-    printf("cidade:");
-    scanf("\n%[^\n]s", cidade);
-    printf("estado:");
-    scanf("\n%[^\n]s", estado);
-    printf("cep:");
-    scanf("\n%[^\n]s", cep);
-    printf("data de nascimento - dia:  ");
-    scanf("%d", &dataNascimento[0]);
-    printf("data de nascimento - mes:  ");
-    scanf("%d", &dataNascimento[1]);
-    printf("data de nascimento - ano:  ");
-    scanf("%d", &dataNascimento[2]);
-    printf("comorbidade de Paciente:");
-    scanf("%s", comorbidadePaciente);
-
-
-
-    //Teste para verificar o que está sendo escrito nas variaveis
-    printf("%s\n", name);
-    printf("%d\n", idade);
-    printf("%s\n", cpf);
-    printf("%d\n", rua);
-    printf("%d\n", numero);
-    printf("%d\n", bairro);
-    printf("%s\n", cidade);
-    printf("%d\n", estado);
-    printf("%s\n", cep);
-    printf("%d/%d/%d\n", dataNascimento[0], dataNascimento[1], dataNascimento[2]);
-    printf("%s\n", comorbidadePaciente);
-
+    scanf("%d", &novoPaciente.idade);
+    fprintf(f, "Idade = %d\n", novoPaciente.idade);
+    printf("Telefone:");
+    scanf("%d", &novoPaciente.telefone);
+    fprintf(f, "Telefone = %d\n", novoPaciente.telefone);
+    printf("CPF:");
+    scanf("%s", novoPaciente.cpf);
+    fprintf(f, "CPF = %s\n", novoPaciente.cpf);
+    printf("Email:");
+    scanf("%s", novoPaciente.email);
+    fprintf(f, "Email = %s\n", novoPaciente.email);
+    printf("Data do Diagnostico:");
+    scanf("%d", &novoPaciente.dataDiagnostico);
+    fprintf(f, "Data do Diagnostico = %d\n", &novoPaciente.dataDiagnostico);
+    printf("Comodidade:");
+    scanf("%d", &novoPaciente.comorbidade);
+    fprintf(f, "Comodidade = %d\n", &novoPaciente.dataDiagnostico);
+    printf("Data de Nascimento:");
+    scanf("%d %d %d", &novoPaciente.dataNascimento.dia,  &novoPaciente.dataNascimento.mes,  &novoPaciente.dataNascimento.ano);
+    fprintf(f, "Data de Nascimento = %d/%d/%d \n", &novoPaciente.dataNascimento.dia,  &novoPaciente.dataNascimento.mes,  &novoPaciente.dataNascimento.ano);
+    printf("\n<<<<Endereco>>>>\n");
+    printf("Rua:");
+    scanf("%s", novoPaciente.endereco.rua);
+    fprintf(f, "Rua = %s\n", novoPaciente.endereco.rua);
+    printf("Numero:");
+    scanf("%d", &novoPaciente.endereco.numero);
+    printf("Bairro:");
+    scanf("%s", novoPaciente.endereco.bairro);
+    fprintf(f, "Bairro = %s\n", novoPaciente.endereco.bairro);
+    printf("Cidade:");
+    scanf("%s", novoPaciente.endereco.cidade);
+    fprintf(f, "Cidade = %s\n", novoPaciente.endereco.cidade);
+    printf("Estado:");
+    scanf("%s", novoPaciente.endereco.estado);
+    fprintf(f, "Estado = %s\n", novoPaciente.endereco.estado);
+    printf("CEP:");
+    scanf("%d", &novoPaciente.endereco.cep);
+    fclose(f);
+    menu();
 }

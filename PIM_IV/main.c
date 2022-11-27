@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "paciente1.h"
+#include <locale.h>
+#include "login.h"
 
 void setPaciente(struct Paciente);
-
+void telaLogin();
 int main(){
-  struct Paciente paciente;
-  preencherPaciente(paciente);
-  return 0;
+    setlocale(LC_ALL, "Portuguese");
+    telaLogin();
+    //struct Paciente paciente;
+    //preencherPaciente(paciente);
+    return 0;
 }

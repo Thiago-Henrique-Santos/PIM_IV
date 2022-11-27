@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 struct Endereco
 {
     char rua[100];
@@ -30,5 +30,4 @@ struct Paciente
 } paciente;
 
 
-void preencherPaciente(struct Paciente paciente);
-void setPaciente(struct Paciente novoPaciente);
+void preencherPaciente();
