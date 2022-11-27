@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1669524461 source:c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\main.c
+1669572220 source:c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"login.h"
 
-1669526079 c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\paciente.h
+1669575453 c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\paciente.h
 
 1669524150 c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\login.h
 
@@ -19,7 +19,7 @@
 	"login.h"
 	"menu.h"
 
-1669526096 source:c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\menu.c
+1669575529 source:c:\users\paulo\onedrive\documentos\projetomarcella\pim_iv\menu.c
 	<stdio.h>
 	"menu.h"
 	"paciente.h"

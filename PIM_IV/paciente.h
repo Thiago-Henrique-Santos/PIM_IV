@@ -9,12 +9,12 @@ struct Endereco
     int cep[8];
 } endereco;
 
-struct DataNascimento
+struct Data
 {
     int dia[2];
     int mes[2];
     int ano[4];
-} dataNascimento;
+} data;
 
 struct Paciente
 {
@@ -23,11 +23,13 @@ struct Paciente
     char cpf[11];
     char telefone[11];
     struct Endereco endereco;
-    struct DataNascimento dataNascimento;
+    struct Data dataNascimento;
     char email[100];
-    int dataDiagnostico[8];
+    struct Data dataDiagnostico;
     enum {diabetes=1, obesidade=2, hipertencao=3, tuberculosi=4, outros=5} comorbidade;
 } paciente;
 
 
 void preencherPaciente();
+void criarArquivo(struct Paciente paciente);
+void lerArquivo();

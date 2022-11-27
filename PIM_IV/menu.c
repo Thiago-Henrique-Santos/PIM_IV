@@ -3,6 +3,7 @@
 #include "paciente.h"
 
 void preencherPaciente();
+void lerArquivo();
 
 void menu(){
     int opcao;
@@ -22,7 +23,7 @@ void menu(){
                 preencherPaciente();
             break;
             case 2 :
-                printf("Construir o listar");
+                lerArquivo();
             break;
             case 3 :
                 break;

@@ -8,7 +8,5 @@ void telaLogin();
 int main(){
     setlocale(LC_ALL, "Portuguese");
     telaLogin();
-    //struct Paciente paciente;
-    //preencherPaciente(paciente);
     return 0;
 }
