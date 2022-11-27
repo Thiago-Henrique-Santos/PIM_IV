@@ -1,24 +1,24 @@
 struct Endereco
 {
     char rua[100];
-    int numero[8];
+    int numero;
     char bairro[100];
     char cidade[100];
     char estado[20];
-    int cep[8];
+    char cep[9];
 } endereco;
 
 struct Data
 {
-    int dia[2];
-    int mes[2];
-    int ano[4];
+    int dia;
+    int mes;
+    int ano;
 } data;
 
 struct Paciente
 {
     char nome[100];
-    int idade[2];
+    int idade;
     char cpf[11];
     char telefone[11];
     struct Endereco endereco;
@@ -32,4 +32,3 @@ struct Paciente
 void preencherPaciente();
 void criarArquivo(struct Paciente paciente);
 void lerArquivo();
-void teste();

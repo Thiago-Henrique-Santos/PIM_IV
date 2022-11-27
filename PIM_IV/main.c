@@ -5,6 +5,7 @@
 
 void setPaciente(struct Paciente);
 void telaLogin();
+
 int main(){
     setlocale(LC_ALL, "Portuguese");
     telaLogin();

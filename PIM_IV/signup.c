@@ -1,4 +1,4 @@
-#include<stdio.h>
+/*#include<stdio.h>
 #include "signup.h"
 
 void cadastrarFuncionario () {
@@ -42,3 +42,4 @@ void cadastrarFuncionario () {
     fclose(arq);
 }
 
+*/
