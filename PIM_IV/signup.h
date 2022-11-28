@@ -11,9 +11,6 @@ struct Funcionario {
     int cidade [30];
     int estado [2];
     int area_atuacao [20];
-
 } funcionario;
-
-
 
 void cadastrarFuncionario();

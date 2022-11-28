@@ -10,8 +10,6 @@ void preencherPaciente(){
     printf("<<<<Formulario de Paciente>>>>\n");
     printf("Nome:");
     scanf("%s", novoPaciente.nome);
-    printf("Idade:");
-    scanf("%d", &novoPaciente.idade);
     printf("Telefone:");
     scanf("%s", novoPaciente.telefone);
     printf("CPF:");
@@ -45,13 +43,13 @@ void criarArquivo(struct Paciente novoPaciente){
     f = fopen("paciente.txt", "r");
     if(f == NULL){
         f = fopen("paciente.txt", "a");
-        fprintf(f, "nome, idade, telefone, cpf, email, dataDiagnostico, comorbidade, dataNascimento, rua, numero, bairro, cidade, estado, cep\n");
+        fprintf(f, "nome, telefone, cpf, email, dataDiagnostico, comorbidade, dataNascimento, rua, numero, bairro, cidade, estado, cep\n");
     }
     else{
         f = fopen("paciente.txt", "a");
     }
 
-    fprintf(f, "%s, %d, %s, %s, %s, %d/%d/%d, %d, %d/%d/%d, %s, %d, %s, %s, %s, %s\n", novoPaciente.nome, novoPaciente.idade, novoPaciente.telefone, novoPaciente.cpf, novoPaciente.email, novoPaciente.dataDiagnostico.dia,
+    fprintf(f, "%s, %s, %s, %s, %d/%d/%d, %d, %d/%d/%d, %s, %d, %s, %s, %s, %s\n", novoPaciente.nome, novoPaciente.telefone, novoPaciente.cpf, novoPaciente.email, novoPaciente.dataDiagnostico.dia,
               novoPaciente.dataDiagnostico.mes,  novoPaciente.dataDiagnostico.ano, novoPaciente.comorbidade, novoPaciente.dataNascimento.dia,  novoPaciente.dataNascimento.mes,  novoPaciente.dataNascimento.ano,
               novoPaciente.endereco.rua, novoPaciente.endereco.numero, novoPaciente.endereco.bairro, novoPaciente.endereco.cidade, novoPaciente.endereco.estado, novoPaciente.endereco.cep);
     fclose(f);
@@ -60,16 +58,154 @@ void criarArquivo(struct Paciente novoPaciente){
 
 void lerArquivo(){
     FILE *f = fopen("paciente.txt", "r");
-    char ch;
+    struct Paciente paciente;
+    char ch, auxData[3][4], auxNumero[10];
     do {
-        ch = fgetc(f);
-        printf("%c", ch);
+        for (int caracteres = 0; fscanf(f, "%c", &ch)=='\n'; caracteres++) {
+            int virgula = 0;
+            if (ch==',') {
+                virgula++;
+            } else {
+                switch (virgula) {
+                    case 0:
+                        for (int i = 0;; i++) {
+                            if (!paciente.nome[i]) {
+                                paciente.nome[i] = ch;
+                                break;
+                            }
+                        }
+                        break;
+                    case 1:
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.telefone[i]) {
+                                    paciente.telefone[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.telefone[i]) {
+                                    paciente.cpf[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.telefone[i]) {
+                                    paciente.email[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
+                        if (ch!='/' && ch!=' ') {
+                            for (int i = 0; i < 3; i++) {
+                                for (int j = 0; j < 4; j++) {
+                                    if (i < 2 && j > 1) {
+                                        break;
+                                    }
 
-        // Checking if character is not EOF.
-        // If it is EOF stop eading.
+                                    if (!auxData[i][j]) {
+                                        auxData[i][j] = ch;
+                                        i = 3;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (auxData[2][3]) {
+                            paciente.dataDiagnostico.dia = atoi(auxData[0]);
+                            paciente.dataDiagnostico.mes = atoi(auxData[1]);
+                            paciente.dataDiagnostico.ano = atoi(auxData[2]);
+                            for (int i = 0; i < 3; i++) {
+                                for (int j = 0; j < 4; j++){
+                                    auxData[i][j] = '\0';
+                                }
+                            }
+                        }
+                        break;
+                    case 5:
+                        char comorbidade;
+                        if (ch!=' ') {
+                            comorbidade = ch;
+                            paciente.comorbidade = comorbidade - '0';
+                        }
+                        break;
+                    case 6:
+                        if (ch!='/' && ch!=' ') {
+                            for (int i = 0; i < 3; i++) {
+                                for (int j = 0; j < 4; j++) {
+                                    if (i < 2 && j > 1) {
+                                        break;
+                                    }
+
+                                    if (!auxData[i][j]) {
+                                        auxData[i][j] = ch;
+                                        i = 3;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (auxData[2][3]) {
+                            paciente.dataNascimento.dia = atoi(auxData[0]);
+                            paciente.dataNascimento.mes = atoi(auxData[1]);
+                            paciente.dataNascimento.ano = atoi(auxData[2]);
+                            for (int i = 0; i < 3; i++) {
+                                for (int j = 0; j < 4; j++){
+                                    auxData[i][j] = '\0';
+                                }
+                            }
+                        }
+                        break;
+                    case 7:
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.endereco.rua[i]) {
+                                    paciente.endereco.rua[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 8:
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!auxNumero[i]) {
+                                    auxNumero[i] = ch;
+                                    break;
+                                }
+                            }
+                            paciente.endereco.numero = atoi(auxNumero);
+                        }
+                        break;
+                    case 9:
+                        //code
+                        break;
+                    case 10:
+                        //code
+                        break;
+                    case 11:
+                        //code
+                        break;
+                    case 12:
+                        //code
+                        break;
+                }
+            }
+        }
     } while (ch != EOF);
 
-    // Closing the file
     fclose(f);
     menu();
 }

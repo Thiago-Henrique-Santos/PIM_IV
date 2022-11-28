@@ -18,7 +18,6 @@ struct Data
 struct Paciente
 {
     char nome[100];
-    int idade;
     char cpf[11];
     char telefone[11];
     struct Endereco endereco;
