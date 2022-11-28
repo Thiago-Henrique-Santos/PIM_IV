@@ -46,6 +46,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="paciente.h" />
+		<Unit filename="signup.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="signup.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

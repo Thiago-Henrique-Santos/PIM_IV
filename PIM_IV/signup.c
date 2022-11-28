@@ -2,6 +2,7 @@
 #include "signup.h"
 
 void cadastrarFuncionario () {
+    struct Funcionario cadastro;
     FILE *arq;
     arq = fopen("cad_funcionario.txt", "a");
     if (arq == NULL) {
@@ -9,36 +10,36 @@ void cadastrarFuncionario () {
     }
     system("cls");
     printf("\tCadastro de Funcionário\n"); printf("\nDigite o nome: "); fflush(stdin);
-    fgets(cadastro[0].nome, 30, stdin);
+    fgets(cadastro.nome, 100, stdin);
 
 
-    fputs(cadastro[0].nome, arq);
+    fputs(cadastro.nome, arq);
     printf("Digite a data do nascimento: "); fflush(stdin);
-    fgets(cadastro[0].nascimento, 11, stdin); fputs(cadastro[0].nascimento, arq);
+    fgets(cadastro.nascimento, 11, stdin); fputs(cadastro.nascimento, arq);
     printf("Digite o RG: "); fflush(stdin);
-    fgets(cadastro[0].rg, 14, stdin); fputs(cadastro[0].rg, arq);
+    fgets(cadastro.rg, 14, stdin); fputs(cadastro.rg, arq);
     printf("Digite o número de Telefone: "); fflush(stdin);
-    fgets(cadastro[0].telefone, 13, stdin); fputs(cadastro[0].telefone, arq);;
+    fgets(cadastro.telefone, 13, stdin); fputs(cadastro.telefone, arq);;
     printf("Digite o E-mail: "); fflush(stdin);
-    fgets(cadastro[0].email, 30, stdin); fputs(cadastro[0].email, arq);
+    fgets(cadastro.email, 100, stdin); fputs(cadastro.email, arq);
     printf("Digite o nome da rua: "); fflush(stdin);
-    fgets(cadastro[0].rua, 30, stdin); fputs(cadastro[0].rua, arq);
+    fgets(cadastro.rua, 100, stdin); fputs(cadastro.rua, arq);
 
 
     printf("Digite o número do endereço: "); fflush(stdin);
-    fgets(cadastro[0].numero_endreco, 4, stdin); fputs(cadastro[0].numero_endreco, arq);
+    fgets(cadastro.numero_endereco, 4, stdin); fputs(cadastro.numero_endereco, arq);
     printf("Digite o nome do bairro: "); fflush(stdin);
-    fgets(cadastro[0].bairro, 30, stdin); fputs(cadastro[0].bairro, arq);
+    fgets(cadastro.bairro, 50, stdin); fputs(cadastro.bairro, arq);
     printf("Digite o CEP da rua: "); fflush(stdin);
-    fgets(cadastro[0].cep, 9, stdin); fputs(cadastro[0].cep, arq);
+    fgets(cadastro.cep, 9, stdin); fputs(cadastro.cep, arq);
     printf("Digite o nome da cidade: "); fflush(stdin);
-    fgets(cadastro[0].cidade, 25, stdin); fputs(cadastro[0].cidade, arq);
+    fgets(cadastro.cidade, 30, stdin); fputs(cadastro.cidade, arq);
     printf("Digite as iniciais do estado: "); fflush(stdin);
-    fgets(cadastro[0].estado, 3, stdin); fputs(cadastro[0].estado, arq);
+    fgets(cadastro.estado, 2, stdin); fputs(cadastro.estado, arq);
     printf("Digite a área de atuação do funcionário: "); fflush(stdin);
 
 
-    fgets(cadastro[0].area_atuacao, 20, stdin); fputs(cadastro[0].area_atuacao, arq);
+    fgets(cadastro.area_atuacao, 20, stdin); fputs(cadastro.area_atuacao, arq);
     fclose(arq);
 }
 
