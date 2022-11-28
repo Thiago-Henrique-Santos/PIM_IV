@@ -59,7 +59,7 @@ void criarArquivo(struct Paciente novoPaciente){
 void lerArquivo(){
     FILE *f = fopen("paciente.txt", "r");
     struct Paciente paciente;
-    char ch, auxData[3][4], auxNumero[10];
+    char ch, auxData[3][4], auxNumero[10], numComorbidade;
     do {
         for (int caracteres = 0; fscanf(f, "%c", &ch)=='\n'; caracteres++) {
             int virgula = 0;
@@ -134,10 +134,9 @@ void lerArquivo(){
                         }
                         break;
                     case 5:
-                        char comorbidade;
                         if (ch!=' ') {
-                            comorbidade = ch;
-                            paciente.comorbidade = comorbidade - '0';
+                            numComorbidade = ch;
+                            paciente.comorbidade = numComorbidade - '0';
                         }
                         break;
                     case 6:
@@ -190,16 +189,44 @@ void lerArquivo(){
                         }
                         break;
                     case 9:
-                        //code
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.endereco.bairro[i]) {
+                                    paciente.endereco.bairro[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
                         break;
                     case 10:
-                        //code
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.endereco.cidade[i]) {
+                                    paciente.endereco.cidade[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
                         break;
                     case 11:
-                        //code
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.endereco.estado[i]) {
+                                    paciente.endereco.estado[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
                         break;
                     case 12:
-                        //code
+                        if (ch!=' ') {
+                            for (int i = 0;; i++) {
+                                if (!paciente.endereco.cep[i]) {
+                                    paciente.endereco.cep[i] = ch;
+                                    break;
+                                }
+                            }
+                        }
                         break;
                 }
             }

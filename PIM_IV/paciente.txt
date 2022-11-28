@@ -1,2 +1,2 @@
 nome, telefone, cpf, email, dataDiagnostico, comorbidade, dataNascimento, rua, numero, bairro, cidade, estado, cep
-Geraldo, 118796987, 12345678910, geraldo@gmail.com, 12/5/2021, 2, 12/3/1979, Paulista, 12, Centro, SaoPaulo, SP, 12345-100
+Thiago, -10, 123.456.789-10, thiago@gmail.com, 24/2/2022, 5, 25/11/2005, Paulista, 25, Centro, Londrina, MG, 37120-897
