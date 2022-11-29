@@ -5,6 +5,8 @@
 #include "menu.h"
 #include "util.h"
 
+void imprimirPaciente(int numListagem, char nome[100], char telefone[11], char cpf[11], char email[100], int diaDiagnostico, int mesDiagnostico, int anoDiagnostico, int numComorbidade, int diaNascimento, int mesNascimento, int anoNascimento, char rua[100], int numCasa, char bairro[100], char cidade[100], char estado[20], char cep[9]);
+
 void menu();
 void preencherPaciente(){
     struct Paciente novoPaciente;
@@ -107,7 +109,50 @@ void lerArquivo(){
         }
 
         if (ch == '\n') {
+
+            if (quebraLinhas>0) {
+                imprimirPaciente(quebraLinhas, paciente.nome, paciente.telefone, paciente.cpf, paciente.email, paciente.dataDiagnostico.dia, paciente.dataDiagnostico.mes, paciente.dataDiagnostico.ano, paciente.comorbidade, paciente.dataNascimento.dia, paciente.dataNascimento.mes, paciente.dataNascimento.ano, paciente.endereco.rua, paciente.endereco.numero, paciente.endereco.bairro, paciente.endereco.cidade, paciente.endereco.estado, paciente.endereco.cep);
+            }
+
             quebraLinhas++;
+            virgula = 0;
+
+            for (int i = 0; i < 100; i++) {
+                paciente.nome[i] = '\0';
+            }
+
+            for (int i = 0; i < 11; i++) {
+                paciente.telefone[i] = '\0';
+            }
+
+            for (int i = 0; i < 11; i++) {
+                paciente.cpf[i] = '\0';
+            }
+
+            for (int i = 0; i < 100; i++) {
+                paciente.email[i] = '\0';
+            }
+
+            for (int i = 0; i < 101; i++) {
+                paciente.endereco.rua[i] = '\0';
+            }
+
+            for (int i = 0; i < 100; i++) {
+                paciente.endereco.bairro[i] = '\0';
+            }
+
+            for (int i = 0; i < 100; i++) {
+                paciente.endereco.cidade[i] = '\0';
+            }
+
+            for (int i = 0; i < 20; i++) {
+                paciente.endereco.estado[i] = '\0';
+            }
+
+            for (int i = 0; i < 9; i++) {
+                paciente.endereco.cep[i] = '\0';
+            }
+
             continue;
         }
 
@@ -121,8 +166,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.nome[i]) {
                                     paciente.nome[i] = ch;
-
-                                    //printf("Nome recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -133,8 +176,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.telefone[i]) {
                                     paciente.telefone[i] = ch;
-
-                                    //printf("Telefone recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -145,8 +186,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.cpf[i]) {
                                     paciente.cpf[i] = ch;
-
-                                    //printf("CPF recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -157,8 +196,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.email[i]) {
                                     paciente.email[i] = ch;
-
-                                    //printf("Email recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -196,7 +233,6 @@ void lerArquivo(){
                         if (ch!=' ') {
                             numComorbidade = ch;
                             paciente.comorbidade = numComorbidade - '0';
-                            //printf("Comorbidade recebeu: %c\n", ch);
                         }
                     break;
                     case 6:
@@ -232,8 +268,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.endereco.rua[i]) {
                                     paciente.endereco.rua[i] = ch;
-
-                                    //printf("Rua recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -255,8 +289,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.endereco.bairro[i]) {
                                     paciente.endereco.bairro[i] = ch;
-
-                                    //printf("Bairro recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -267,8 +299,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.endereco.cidade[i]) {
                                     paciente.endereco.cidade[i] = ch;
-
-                                    //printf("Cidade recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -279,8 +309,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.endereco.estado[i]) {
                                     paciente.endereco.estado[i] = ch;
-
-                                    //printf("Estado recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -291,8 +319,6 @@ void lerArquivo(){
                             for (int i = 0;; i++) {
                                 if (!paciente.endereco.cep[i]) {
                                     paciente.endereco.cep[i] = ch;
-
-                                    //printf("CEP recebeu: %c na posicao %d\n", ch, i);
                                     break;
                                 }
                             }
@@ -303,25 +329,27 @@ void lerArquivo(){
         }
     }
 
-    printf("========== PACIENTE %d ==========\n", quebraLinhas);
-    printf("Nome: %s\n", paciente.nome);
-    printf("Telefone: %s\n", paciente.telefone);
-    printf("CPF: %s\n", paciente.cpf);
-    printf("Email: %s\n", paciente.email);
-    printf("Data do diagnóstico: %d/%d/%d\n", paciente.dataDiagnostico.dia, paciente.dataDiagnostico.mes, paciente.dataDiagnostico.ano);
-    char* comorbidade = tratarComorbidade(paciente.comorbidade);
-    printf("Comorbidade: %s\n", comorbidade);
-    //free(comorbidade);
-    printf("Data de nascimento: %d/%d/%d\n", paciente.dataNascimento.dia, paciente.dataNascimento.mes, paciente.dataNascimento.ano);
-    printf("ENDEREÇO\n");
-    printf("Rua: %s\n", paciente.endereco.rua);
-    printf("Número: %d\n", paciente.endereco.numero);
-    printf("Bairro: %s\n", paciente.endereco.bairro);
-    printf("Cidade: %s\n", paciente.endereco.cidade);
-    printf("Estado: %s\n", paciente.endereco.estado);
-    printf("CEP: %s\n", paciente.endereco.cep);
-    printf("===============================\n", quebraLinhas);
-
     fclose(f);
     menu();
+}
+
+void imprimirPaciente(int numListagem, char nome[100], char telefone[11], char cpf[11], char email[100], int diaDiagnostico, int mesDiagnostico, int anoDiagnostico, int numComorbidade, int diaNascimento, int mesNascimento, int anoNascimento, char rua[100], int numCasa, char bairro[100], char cidade[100], char estado[20], char cep[9]) {
+    printf("\n========== PACIENTE %d ==========\n", numListagem);
+    printf("Nome: %s\n", nome);
+    printf("Telefone: %s\n", telefone);
+    printf("CPF: %s\n", cpf);
+    printf("Email: %s\n", email);
+    printf("Data do diagnóstico: %d/%d/%d\n", diaDiagnostico, mesDiagnostico, anoDiagnostico);
+    char* comorbidade = tratarComorbidade(numComorbidade);
+    printf("Comorbidade: %s\n", comorbidade);
+    //free(comorbidade);
+    printf("Data de nascimento: %d/%d/%d\n", diaNascimento, mesNascimento, anoNascimento);
+    printf("ENDEREÇO\n");
+    printf("Rua: %s\n", rua);
+    printf("Número: %d\n", numCasa);
+    printf("Bairro: %s\n", bairro);
+    printf("Cidade: %s\n", cidade);
+    printf("Estado: %s\n", estado);
+    printf("CEP: %s\n", cep);
+    printf("===============================\n");
 }
