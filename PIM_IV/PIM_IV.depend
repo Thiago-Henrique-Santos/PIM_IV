@@ -55,9 +55,10 @@
 
 1669608209 c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\signup.h
 
-1669667844 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\paciente.c
+1669676134 source:c:\users\user\desktop\thiago\unip\semestre2\pims\pim_iv\software\pim_iv\paciente.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"paciente.h"
 	"menu.h"
 	"util.h"
