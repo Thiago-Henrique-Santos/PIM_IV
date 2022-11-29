@@ -5,7 +5,7 @@
 void menu();
 
 void telaLogin(){
-    struct Login loginDefault = {"teste@teste.com", "Teste"};
+    struct Login loginDefault = {"recepcao@hospital.com", "recepcao"};
     struct Login loginTela;
 
     printf("*************************************\n\n");

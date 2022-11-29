@@ -108,6 +108,7 @@ void lerArquivo(){
 
         if (ch == '\n') {
             quebraLinhas++;
+            continue;
         }
 
         if (quebraLinhas>0) {
@@ -302,22 +303,24 @@ void lerArquivo(){
         }
     }
 
-    printf("Nome: %s.\n", paciente.nome);
-    printf("Telefone: %s.\n", paciente.telefone);
-    printf("CPF: %s.\n", paciente.cpf);
-    printf("Email: %s.\n", paciente.email);
-    printf("Data do diagnóstico: %d/%d/%d.\n", paciente.dataDiagnostico.dia, paciente.dataDiagnostico.mes, paciente.dataDiagnostico.ano);
+    printf("========== PACIENTE %d ==========\n", quebraLinhas);
+    printf("Nome: %s\n", paciente.nome);
+    printf("Telefone: %s\n", paciente.telefone);
+    printf("CPF: %s\n", paciente.cpf);
+    printf("Email: %s\n", paciente.email);
+    printf("Data do diagnóstico: %d/%d/%d\n", paciente.dataDiagnostico.dia, paciente.dataDiagnostico.mes, paciente.dataDiagnostico.ano);
     char* comorbidade = tratarComorbidade(paciente.comorbidade);
-    printf("Comorbidade: %s.\n", comorbidade);
+    printf("Comorbidade: %s\n", comorbidade);
     //free(comorbidade);
-    printf("Data de nascimento: %d/%d/%d.\n", paciente.dataNascimento.dia, paciente.dataNascimento.mes, paciente.dataNascimento.ano);
+    printf("Data de nascimento: %d/%d/%d\n", paciente.dataNascimento.dia, paciente.dataNascimento.mes, paciente.dataNascimento.ano);
     printf("ENDEREÇO\n");
-    printf("Rua: %s.\n", paciente.endereco.rua);
-    printf("Número: %d.\n", paciente.endereco.numero);
-    printf("Bairro: %s.\n", paciente.endereco.bairro);
-    printf("Cidade: %s.\n", paciente.endereco.cidade);
-    printf("Estado: %s.\n", paciente.endereco.estado);
-    printf("CEP: %s.\n", paciente.endereco.cep);
+    printf("Rua: %s\n", paciente.endereco.rua);
+    printf("Número: %d\n", paciente.endereco.numero);
+    printf("Bairro: %s\n", paciente.endereco.bairro);
+    printf("Cidade: %s\n", paciente.endereco.cidade);
+    printf("Estado: %s\n", paciente.endereco.estado);
+    printf("CEP: %s\n", paciente.endereco.cep);
+    printf("===============================\n", quebraLinhas);
 
     fclose(f);
     menu();
